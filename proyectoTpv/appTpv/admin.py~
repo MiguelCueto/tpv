@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from appTpv.models import Factura, Articulo, Camarero, Periodo, Cantidad, Saldo
+from appTpv.models import Factura, Articulo, Camarero, Periodo, Cantidad
 
 admin.site.register(Factura)
 
