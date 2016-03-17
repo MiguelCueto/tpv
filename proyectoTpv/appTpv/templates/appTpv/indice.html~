@@ -1,0 +1,61 @@
+<html>
+		<head>
+
+				<title>Terminal punto de Venta</title>
+
+		</head>
+		<body>
+				<h1>Terminal punto de venta</h1>
+				
+				{% if lista_Camarero %}
+					<table border="2">
+						<tr>
+								<td>Nombre</td>
+																
+						</tr>
+						{% for camarero in lista_Camarero %}
+						<tr>
+								<td>{{ camarero.nombre }}</td>
+								
+								
+						</tr>
+						{% endfor %}
+
+					</table>
+
+				{% else %}
+					<p>No hay camareros</p>
+				{% endif %}
+
+				
+					<div>
+					<ul>
+					{% for articulo in lista_Articulo %}
+						
+							<li>{{ articulo.nombre }}</li>
+
+					{% endfor %}
+							
+						</ul>
+					</div>
+								
+																
+						
+						{% for camarero in lista_Camarero %}
+						<tr>
+								<td>{{ camarero.nombre }}</td>
+								
+								
+						</tr>
+						{% endfor %}
+
+					</table>
+
+				{% else %}
+					<p>No hay camareros</p>
+				{% endif %}
+	
+
+		</body>
+
+</html>

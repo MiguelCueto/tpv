@@ -8,9 +8,10 @@ class Camarero(models.Model):
 class Factura(models.Model):
 	camarero = models.ForeignKey(Camarero)
 	fecha = models.DateTimeField()
+	abierto = models.NullBooleanField()
 	
 class Articulo(models.Model):
-	articulo = models.CharField(max_length=100)
+	nombre = models.CharField(max_length=100)
 	precio_unitario = models.FloatField()
 	
 class Cantidad(models.Model):
