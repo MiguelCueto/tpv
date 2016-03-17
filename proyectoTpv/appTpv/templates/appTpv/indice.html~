@@ -41,21 +41,9 @@
 								
 																
 						
-						{% for camarero in lista_Camarero %}
-						<tr>
-								<td>{{ camarero.nombre }}</td>
-								
-								
-						</tr>
-						{% endfor %}
+						>
 
-					</table>
-
-				{% else %}
-					<p>No hay camareros</p>
-				{% endif %}
-	
-
+				
 		</body>
 
 </html>
