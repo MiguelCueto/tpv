@@ -1,7 +1,12 @@
+{% load staticfiles %}
 <html>
 		<head>
-
+				
 				<title>Terminal punto de Venta</title>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+				<script language="JavaScript" type="text/javascript" src="{% static "js/tpv.js" %}"></script>
+				
+				<link rel="stylesheet" type="text/css" href="{% static "css/tpv.css"%}"
 
 		</head>
 		<body>
@@ -9,8 +14,9 @@
 				
 				{% if lista_Camarero %}
 					<table border="2">
-						<tr>
-								<td>Nombre</td>
+						
+						<tr>	
+								<td>Elige camarero</td>
 																
 						</tr>
 						{% for camarero in lista_Camarero %}
@@ -20,6 +26,7 @@
 								
 						</tr>
 						{% endfor %}
+					    
 
 					</table>
 

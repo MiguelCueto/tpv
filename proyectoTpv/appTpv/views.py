@@ -13,3 +13,5 @@ def indice(request):
 #osea como se va a llamar lista_Articulo en el template
 
 
+
+
