@@ -3,7 +3,7 @@
 		<head>
 				
 				<title>Terminal punto de Venta</title>
-				<script src="jquery-1.12.0.min.js"></script>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 				<script language="JavaScript" type="text/javascript" src="{% static "js/tpv.js" %}"></script>
 				
 				<link rel="stylesheet" type="text/css" href="{% static "css/tpv.css"%}"
@@ -11,7 +11,7 @@
 		</head>
 		<body>
 				<h1>Terminal punto de venta</h1>
-				
+				<div id="camarero"></div>
 				{% if lista_Camarero %}
 					<table border="2">
 						
@@ -21,7 +21,7 @@
 						</tr>
 						{% for camarero in lista_Camarero %}
 						<tr>
-								<td>{{ camarero.nombre }}</td>
+								<td class="nombre">{{ camarero.nombre }}</td>
 								
 								
 						</tr>
@@ -36,14 +36,37 @@
 
 				
 					<div>
-					<ul>
-					{% for articulo in lista_Articulo %}
+						<ul>
+							{% for articulo in lista_Articulo %}
 						
-							<li>{{ articulo.nombre }}</li>
+									<li>{{ articulo.nombre }}</li>
 
-					{% endfor %}
+							{% endfor %}
 							
 						</ul>
+					</div>
+
+					<div>
+						<table border="3">
+
+							<thead>	
+								<tr>
+									<th>Articulo</th>
+									<th>Cantidad</th>
+									<th>Precio Unitario</th>
+									<th>Precio Total</th>
+								</tr>
+									
+								
+																
+							</thead>
+							
+
+
+						</table>
+
+
+
 					</div>
 								
 																
