@@ -2,6 +2,14 @@ body {
     background-color: yellow;
 }
 
-.desaparecer{
-		visibility: hidden;
+#articulos{
+		display: none;
+}
+
+#ticket{
+		display: none;
+}
+
+#lista_tickets{
+		display: none;
 }

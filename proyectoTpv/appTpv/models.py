@@ -12,7 +12,7 @@ class Factura(models.Model):
 	fecha = models.DateTimeField()
 	abierto = models.NullBooleanField()
 	def __str__(self):
-		return '%s' % (self.camarero)
+		return '%s' % (self.id)
 	
 class Articulo(models.Model):
 	nombre = models.CharField(max_length=100)
@@ -24,7 +24,8 @@ class Cantidad(models.Model):
 	cantidad = models.IntegerField()
 	articulo = models.ForeignKey(Articulo)
 	factura = models.ForeignKey(Factura)
-	
+	def __str__(self):
+		return '%s' % (self.articulo)
 
 class Periodo(models.Model):
 	fecha_inicio = models.DateTimeField()

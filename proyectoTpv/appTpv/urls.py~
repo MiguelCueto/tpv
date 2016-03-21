@@ -5,5 +5,5 @@ urlpatterns = [
    
     url(r'^$',views.indice,name='indice'),
 #  cadena vacia. llama a la vista indice, con el nombre de enlace: indice
-	url(r'^elegirCamarero$' , views.elegirCamarero, name='elegirCamarero'),
+	
 ]

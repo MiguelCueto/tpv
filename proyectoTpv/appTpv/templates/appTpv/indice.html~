@@ -15,10 +15,10 @@
 				{% if lista_Camarero %}
 					<table border="2">
 						
-						<thead>	
-								<tr>Elige camarero</tr>
+						<tr>	
+								<td>Elige camarero</td>
 																
-						</thead>
+						</tr>
 						{% for camarero in lista_Camarero %}
 						<tr>
 								<td class='nombre'>{{ camarero.nombre }}</td>
@@ -35,7 +35,7 @@
 				{% endif %}
 
 				
-					<div class="desaparecer">
+					<div id="articulos">
 						<ul>
 							{% for articulo in lista_Articulo %}
 						
@@ -46,7 +46,7 @@
 						</ul>
 					</div>
 					<div>
-							<div class="desaparecer">
+							<div id="ticket">
 								<table border="3">
 
 									<thead>	
@@ -69,7 +69,7 @@
 								</table>
 							</div>
 								
-							<div class="desaparecer">
+							<div>
 								<table border="3">
 									<tr>
 										<td>TOTAL</td>
@@ -79,19 +79,11 @@
 
 							</div>
 					</div>
-					<div class="desaparecer">
-						<table border="3">
-							<thead>
-								<th>TICKETS</th>
-							</thead>
-							{% for factura in lista_Factura %}
-							<tr>
-			
-								<td>{{ factura.fecha }}</td>
-							</tr>
-							{% endfor %}
+					<div >
+						<table id="lista_tickets" border="3">
+							
 						</table>
-					
+						
 					
 
 					</div>										
