@@ -1,0 +1,7 @@
+body {
+    background-color: yellow;
+}
+
+.desaparecer{
+	display=none;
+}

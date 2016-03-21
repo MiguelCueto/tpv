@@ -21,7 +21,7 @@
 						</tr>
 						{% for camarero in lista_Camarero %}
 						<tr>
-								<td class="nombre">{{ camarero.nombre }}</td>
+								<td class='nombre'>{{ camarero.nombre }}</td>
 								
 								
 						</tr>
@@ -35,7 +35,7 @@
 				{% endif %}
 
 				
-					<div>
+					<div class="desaparecer">
 						<ul>
 							{% for articulo in lista_Articulo %}
 						
@@ -45,31 +45,56 @@
 							
 						</ul>
 					</div>
-
 					<div>
-						<table border="3">
+							<div class="desaparecer">
+								<table border="3">
 
-							<thead>	
-								<tr>
-									<th>Articulo</th>
-									<th>Cantidad</th>
-									<th>Precio Unitario</th>
-									<th>Precio Total</th>
-								</tr>				
+									<thead>	
+										<tr>
+											<th>Articulo</th>
+											<th>Cantidad</th>
+											<th>Precio Unitario</th>
+											<th>Precio Total</th>
+										</tr>				
 																
-							</thead>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
+									</thead>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
 
-						</table>
-					</div>
+								</table>
+							</div>
 								
-																
+							<div class="desaparecer">
+								<table border="3">
+									<tr>
+										<td>TOTAL</td>
+										<td></td>
+									</tr>
+								</table>
+
+							</div>
+					</div>
+					<div class="desaparecer">
+						<table border="3">
+							<thead>
+								<th>TICKETS</th>
+							</thead>
+							{% for factura in lista_Factura %}
+							<tr>
+			
+								<td>{{ factura.fecha }}</td>
+							</tr>
+							{% endfor %}
+						</table>
+					
+					
+
+					</div>										
 						
 						
 

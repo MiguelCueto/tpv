@@ -1,8 +1,13 @@
 $(document).ready(function(){
-	$( ".nombre" ).click(function() {
-	  $("#camarero").html($(event.target).text()); 
+		$(".nombre").click(function(event) {
+			$("#camarero").html($(event.target).text());
+			$("#ticket").hide();
+
+	
 	});
-	   
-}); 
+});
+
+   
+
 
 
