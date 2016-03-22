@@ -44,17 +44,10 @@ $(document).ready(function(){
 			$("#lista_tickets").show();
 		});
 
-		$(".celda").click(function(event){ 
-			alert("hola");
-			fecha=$(event.target).text();	
-			$.each(lista_tickets, function(i, item) {
-				if (tickets.indexOf(item.factura)==-1){
-					tickets.push(item.factura);	
-					$("<tr class='linea'><td class='celda'>"+item.factura__fecha+"</td></tr>").appendTo( "#lista_tickets" );
-				}
-					
-				}); 
-	
+		$(".linea_articulo").click(function(event){ 
+		if (item.articulo == ){
+			$(".linea").append(item.articulo);
+		}	
 	
 		});
 

@@ -44,11 +44,12 @@ $(document).ready(function(){
 			$("#lista_tickets").show();
 		});
 
-		$(".celda").click(function(event){ 
-			alert("hola");
-			
+		//$(".linea_articulo").click(function(event){ 
+		//if (item.articulo == ){
+		//	$(".linea").appendTo(item.articulo);
+		//}	
 	
-		});
+		//});
 
 
 
