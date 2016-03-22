@@ -47,7 +47,7 @@
 					</div>
 					<div>
 							<div id="ticket">
-								<table class="lista_tabla" border="3">
+								<table id="lista_tabla" border="3">
 
 									<thead>	
 										<tr>
@@ -66,8 +66,8 @@
 							<div>
 								<table border="3">
 									<tr>
-										<td>TOTAL</td>
-										<td></td>
+										<td >TOTAL</td>
+										<td id="total"></td>
 									</tr>
 								</table>
 

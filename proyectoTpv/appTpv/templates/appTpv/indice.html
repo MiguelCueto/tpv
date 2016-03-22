@@ -39,7 +39,7 @@
 						<ul>
 							{% for articulo in lista_Articulo %}
 						
-									<li>{{ articulo.nombre }}</li>
+									<li class="linea_articulo">{{ articulo.nombre }}</li>
 
 							{% endfor %}
 							
@@ -66,8 +66,8 @@
 							<div>
 								<table border="3">
 									<tr>
-										<td>TOTAL</td>
-										<td></td>
+										<td >TOTAL</td>
+										<td id="total"></td>
 									</tr>
 								</table>
 

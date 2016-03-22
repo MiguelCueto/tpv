@@ -4,7 +4,11 @@ var lista_tickets="";
 $(document).ready(function(){
 		
 		$(".nombre").click(function(event) {
+			$("#articulos").show();
 			$(".linea").remove();
+			$(".linea_ticket").remove();
+			$("#ticket").hide();
+			$("#total").hide();
 			camarero=$(event.target).text()
 			$("#camarero").html($(event.target).text());
 			$.getJSON("tickets_abiertos/"+camarero, function( data ) {
@@ -19,14 +23,19 @@ $(document).ready(function(){
 					
 				});
 				$(".linea").on('click',function(event) {
+					$(".linea_ticket").remove();
 					fecha=$(event.target).text();
+					var total=0;
 					$.each(lista_tickets, function(i, item) {
 						if (item.factura__fecha==fecha){
-							$("<tr class='linea_ticket'><td>"+item.articulo__nombre+"</td><td>"+item.cantidad+"</td></tr>").appendTo( "#lista_tabla" );
+							total=total+(item.cantidad)*(item.articulo__precio_unitario);
+							$("<tr class='linea_ticket'><td>"+item.articulo__nombre+"</td><td>"+item.cantidad+"</td><td>"+item.articulo__precio_unitario+"</td><td>"+(item.cantidad)*(item.articulo__precio_unitario)+"</td></tr>").appendTo( "#lista_tabla" );
 						}
-					
+						
 					}); 
+					$("#total").html(total);
 					$("#ticket").show();
+					$("#total").show();
 				});
 							  
 			});
@@ -37,15 +46,7 @@ $(document).ready(function(){
 
 		$(".celda").click(function(event){ 
 			alert("hola");
-			fecha=$(event.target).text();	
-			$.each(lista_tickets, function(i, item) {
-				if (tickets.indexOf(item.factura)==-1){
-					tickets.push(item.factura);	
-					$("<tr class='linea'><td class='celda'>"+item.factura__fecha+"</td></tr>").appendTo( "#lista_tickets" );
-				}
-					
-				}); 
-	
+			
 	
 		});
 
