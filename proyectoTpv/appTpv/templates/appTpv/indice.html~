@@ -47,7 +47,7 @@
 					</div>
 					<div>
 							<div id="ticket">
-								<table border="3">
+								<table class="lista_tabla" border="3">
 
 									<thead>	
 										<tr>
@@ -58,13 +58,7 @@
 										</tr>				
 																
 									</thead>
-									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-									</tr>
+									
 
 								</table>
 							</div>
@@ -81,7 +75,7 @@
 					</div>
 					<div >
 						<table id="lista_tickets" border="3">
-							
+							<th>LISTA TICKETS</th>
 						</table>
 						
 					
