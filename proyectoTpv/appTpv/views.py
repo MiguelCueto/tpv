@@ -27,9 +27,12 @@ def meterMasArticulos(request,factura_id,articulo_id):
 	articulo_actual = get_object_or_404(Articulo, pk=articulo_id)
 	cantidad = Cantidad.objects.filter(factura=factura_actual,articulo=articulo_actual)
 	if cantidad:
-		cantidad[0].cantidad=cantidad[0]+1
-		cantidad[0].save()
+		c=cantidad[0]
+		c.cantidad=c.cantidad+1
+		print(c.cantidad)
+		c.save()
 	else:
 		c = Cantidad(articulo=articulo_actual,factura=factura_actual,cantidad=1)
+		c.save()
 	resultado = {'result':'OK'}
 	return HttpResponse(json.dumps(resultado, cls=DjangoJSONEncoder), content_type='application/json')
