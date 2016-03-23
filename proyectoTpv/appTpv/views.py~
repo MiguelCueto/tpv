@@ -4,6 +4,7 @@ from django.core import serializers
 import json
 from django.http import HttpResponse
 from django.core.serializers.json import DjangoJSONEncoder
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -21,4 +22,18 @@ def tickets_abiertos(request,camarero):
 	print(lista_tickets)
 	return HttpResponse(json.dumps(list(lista_tickets), cls=DjangoJSONEncoder), content_type='application/json')
 
-
+def meterMasArticulos(request,factura_id,articulo_id):
+	print("hola")
+	factura_actual = get_object_or_404(Factura, pk=factura_id)
+	articulo_actual = get_object_or_404(Articulo, pk=articulo_id)
+	cantidad = Cantidad.objects.filter(factura=factura_actual,articulo=articulo_actual)
+	print(factura_actual)
+	print(articulo_actual)
+	print(cantidad)
+	if cantidad:
+		cantidad[0].cantidad=cantidad[0]+1
+		cantidad[0].save()
+	else:
+		c = Cantidad(articulo=articulo_actual,factura=factura_actual,cantidad=1)
+	resultado = {'result':'OK'}
+	return HttpResponse(json.dumps(resultado, cls=DjangoJSONEncoder), content_type='application/json')

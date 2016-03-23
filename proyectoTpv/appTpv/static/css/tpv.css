@@ -13,3 +13,7 @@ body {
 #lista_tickets{
 		display: none;
 }
+
+.oculto{
+	display:none;
+}

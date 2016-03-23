@@ -1,5 +1,6 @@
 var camarero="";
 var lista_tickets="";
+var factura_actual="";
 
 $(document).ready(function(){
 		
@@ -28,6 +29,7 @@ $(document).ready(function(){
 					var total=0;
 					$.each(lista_tickets, function(i, item) {
 						if (item.factura__fecha==fecha){
+							factura_actual=item.factura
 							total=total+(item.cantidad)*(item.articulo__precio_unitario);
 							$("<tr class='linea_ticket'><td>"+item.articulo__nombre+"</td><td>"+item.cantidad+"</td><td>"+item.articulo__precio_unitario+"</td><td>"+(item.cantidad)*(item.articulo__precio_unitario)+"</td></tr>").appendTo( "#lista_tabla" );
 						}
@@ -44,12 +46,17 @@ $(document).ready(function(){
 			$("#lista_tickets").show();
 		});
 
-		//$(".linea_articulo").click(function(event){ 
-		//if (item.articulo == ){
-		//	$(".linea").appendTo(item.articulo);
-		//}	
-	
-		//});
+		$(".linea_articulo").click(function(event){ 
+			id_articulo=$(event.target).next();	
+			$.getJSON("meterMasArticulos/"+factura_actual+"/"+id_articulo.text(), function( data ) {
+				$.each(data, function(i, item) {
+						if (item.result=="OK"){
+							alert("ok")
+						}
+						
+				});
+			});
+		});
 
 
 

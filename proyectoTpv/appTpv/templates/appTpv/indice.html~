@@ -39,7 +39,8 @@
 						<ul>
 							{% for articulo in lista_Articulo %}
 						
-									<li>{{ articulo.nombre }}</li>
+									<li class="linea_articulo">{{ articulo.nombre }}</li>
+									<li class="oculto">{{ articulo.id }}</li>
 
 							{% endfor %}
 							
@@ -77,9 +78,22 @@
 						<table id="lista_tickets" border="3">
 							<th>LISTA TICKETS</th>
 						</table>
-						
-					
 
+					</div>
+					<div>
+						<tr>
+							<td>TOTAL VENTA</td>
+							<td id="total"></td>
+						</tr>
+						<tr>
+							<td>ENTREGA EL CLIENTE</td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>DEVOLUCION</td>
+							<td></td>
+						</tr>
+					
 					</div>										
 						
 						
