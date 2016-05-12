@@ -13,3 +13,13 @@ body {
 #lista_tickets{
 		display: none;
 }
+
+#ticket_nuevo{
+		display:none;
+}
+
+.oculto{
+	display:none;
+}
+
+

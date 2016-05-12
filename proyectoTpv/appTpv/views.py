@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from appTpv.models import Articulo, Camarero, Factura, Cantidad #del models importa la clase Articulo
+from appTpv.models import Articulo, Camarero, Factura, Cantidad #del models importa la clase Articulo Factura, Cantidad
 from django.core import serializers
 import json
 from django.http import HttpResponse
@@ -36,3 +36,22 @@ def meterMasArticulos(request,factura_id,articulo_id):
 		c.save()
 	resultado = {'result':'OK'}
 	return HttpResponse(json.dumps(resultado, cls=DjangoJSONEncoder), content_type='application/json')
+#A continuación vamos a crear la funcion que nos cree tickets nuevos 
+def ticketNuevo(request,camarero):
+	print("ticket nuevo de "+camarero)	
+	camarero_actual = Camarero.objects.filter(nombre=camarero) #esto es una variable que guarda el nombre del Camarero, esta relacionada con Factura porque factura es clave ajena de Camarero
+	print("Camarero actual: "+camarero_actual[0].nombre)
+	#if camarero_actual:
+	#	print("Camarero actual: "+camarero_actual[0])
+	#else:
+	#	print("Fallo camarero")
+	#f =Factura.objects.create(camarero = camarero_actual[0].id, fecha = datetime.datetime.now(), abierto = true)
+	resultado = {'result':'OK'}
+	print(resultado)
+	return HttpResponse(json.dumps(resultado, cls=DjangoJSONEncoder), content_type='application/json') #esto devuelve un Json con 'result':'OK'
+
+
+
+
+
+
