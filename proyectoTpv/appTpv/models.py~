@@ -5,7 +5,7 @@ class Camarero(models.Model):
 	nombre = models.CharField(max_length=100)
 	dni = models.CharField(max_length=9)
 	def __str__(self):
-		return '%s' % (self.nombre)
+		return '%s' % (self.id)
 
 class Factura(models.Model):
 	camarero = models.ForeignKey(Camarero)
@@ -24,7 +24,8 @@ class Cantidad(models.Model):
 	cantidad = models.IntegerField()
 	articulo = models.ForeignKey(Articulo)
 	factura = models.ForeignKey(Factura)
-	
+	def __str__(self):
+		return '%s' % (self.articulo)
 
 class Periodo(models.Model):
 	fecha_inicio = models.DateTimeField()
