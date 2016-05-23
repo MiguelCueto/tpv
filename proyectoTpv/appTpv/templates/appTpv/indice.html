@@ -10,13 +10,13 @@
 
 		</head>
 		<body>
-				<h1>Terminal punto de venta</h1>
-				<div id="camarero"></div>
+				<h1 id="titulo">Terminal punto de venta</h1>
+				<div id="camarero">
 				{% if lista_Camarero %}
 					<table border="2">
 						
 						<tr>	
-								<td>Elige camarero</td>
+								<td style="font-weight: bold;">Elige camarero</td>
 																
 						</tr>
 						{% for camarero in lista_Camarero %}
@@ -29,14 +29,16 @@
 					    
 
 					</table>
+				</div>
 
 				{% else %}
 					<p>No hay camareros</p>
 				{% endif %}
 
-				
+				<div>
 					<div id="articulos">
 						<ul>
+							<p style="font-weight: bold;">LISTA DE ARTICULOS:</p>
 							{% for articulo in lista_Articulo %}
 						
 									<li class="linea_articulo">{{ articulo.nombre }}</li>
@@ -46,7 +48,7 @@
 							
 						</ul>
 					</div>
-					<div>
+					<div id="contenedorTicketTotal">
 							<div id="ticket">
 								<table id="lista_tabla" border="3">
 
@@ -62,25 +64,30 @@
 									
 
 								</table>
+								<div id="totalContenedor">
+									<table border="3">
+										<tr>
+											<td >TOTAL</td>
+											<td id="total"></td>
+										</tr>
+									</table>
+
+								</div>
 							</div>
 								
+							
+					</div>
+					<div id="listaTicketYboton">
+						<div id="juntaListaTicketYboton">
+							<table id="lista_tickets" border="3">
+								<th>LISTA TICKETS</th>
+							</table>
 							<div>
-								<table border="3">
-									<tr>
-										<td >TOTAL</td>
-										<td id="total"></td>
-									</tr>
-								</table>
-
+								<button id="ticket_nuevo">TICKET NUEVO</button>
 							</div>
+						</div>
 					</div>
-					<div >
-						<table id="lista_tickets" border="3">
-							<th>LISTA TICKETS</th>
-						</table>
-
-					</div>
-					<div><button id="ticket_nuevo">TICKET NUEVO</button></div>
+					
 															
 						
 						

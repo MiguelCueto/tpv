@@ -1,25 +1,90 @@
 body {
     background-color: yellow;
+	width: 60%
+	margin: 0%, auto;
+	font-family: Arial;
+	border: solid black 3px;
 }
 
 #articulos{
 		display: none;
+		float: right;
+		border: 3px solid red;
 }
 
 #ticket{
 		display: none;
+	
 }
 
 #lista_tickets{
 		display: none;
+		clear: both;
+	
+
 }
 
 #ticket_nuevo{
 		display:none;
+
 }
 
 .oculto{
 	display:none;
+}
+
+#titulo {
+
+	border-style: solid;
+    border-color: red;
+	text-align: center;
+	font-family: Arial;
+	font-size: 50px;
+
+}
+
+#camarero {
+	
+	border-style: solid;
+    border-color: red;
+	font-size: 30px;
+	font-weight: bold;
+
+}
+td, li {
+	cursor: pointer;
+}
+#contenedorTicketTotal {
+	border: solid green 3px;
+	width: 448px;
+}
+#totalContenedor {
+	border: solid blue 3px;
+	padding: 0px 0px 0px 0px;
+	width: 98px;
+	float: right;
+	padding: 0px 0px 0px 348px;
+}
+#listaTicketYboton{
+	
+	border: solid pink 3px;
+	padding-top: 30px;
+	
+	height: 108px;
+	overflow: hidden;	
+
+	
+
+	 text-align:center;
+}
+
+#juntaListaTicketYboton{
+
+	border:green 3px solid;
+	width:178px;
+	display: inline-block;
+
+
 }
 
 

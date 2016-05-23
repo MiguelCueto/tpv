@@ -5,7 +5,7 @@ var factura_actual=""; //guarda el id de la factura que vemos en la tabla
 $(document).ready(function(){
 		
 		$(".nombre").click(function(event) { //cuando haga click en el nombre del camarero que me muestre sus tickets abiertos
-			$("#articulos").show();
+			/*$("#articulos").show();*/
             $("#ticket_nuevo").show();
 			$(".linea").remove();
 			$(".linea_ticket").remove();
@@ -68,6 +68,7 @@ $.getJSON("tickets_abiertos/"+camarero, function( data ) { //pedimos a la base d
 					
 				});
 				$(".linea").on('click',function(event) {//cuando haga click en la fecha que me muestra lo que tiene de articulos
+					$("#articulos").show();
 					$(".linea_ticket").remove(); //borro la tabla para meter la nueva
 					fecha=$(event.target).text(); //esto es la manera de identificar el ticket
 					var total=0; //aquig guardamos el total
