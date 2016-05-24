@@ -14,6 +14,7 @@ class Factura(models.Model):
 	def __str__(self):
 		return '%s' % (self.id)
 	
+	
 class Articulo(models.Model):
 	nombre = models.CharField(max_length=100)
 	precio_unitario = models.FloatField()

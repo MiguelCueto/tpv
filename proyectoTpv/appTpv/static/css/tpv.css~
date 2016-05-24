@@ -83,7 +83,11 @@ td, li {
 	border:green 3px solid;
 	width:178px;
 	display: inline-block;
-
+}
+#lista_tabla {
+	border-collapse: collapse;
+	text-align: center;
+	width: 448px;
 
 }
 

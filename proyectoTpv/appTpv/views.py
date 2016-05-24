@@ -6,6 +6,7 @@ from django.http import HttpResponse
 from django.core.serializers.json import DjangoJSONEncoder
 from django.shortcuts import get_object_or_404
 
+
 # Create your views here.
 
 def indice(request):
@@ -38,20 +39,25 @@ def meterMasArticulos(request,factura_id,articulo_id):
 	return HttpResponse(json.dumps(resultado, cls=DjangoJSONEncoder), content_type='application/json')
 #A continuación vamos a crear la funcion que nos cree tickets nuevos 
 def ticketNuevo(request,camarero):	
-	print("ticket nuevo de "+camarero)	
+	#print("ticket nuevo de "+camarero)	
 	camarero_actual = Camarero.objects.get(nombre=camarero) #esto es una variable que guarda el nombre del Camarero, esta relacionada con 		#Factura porque factura es clave ajena de Camarero
+	#print(camarero_actual)
 	#print("ticket nuevo de "+camarero)	
 	#if camarero_actual:
 	#	print("Camarero actual: "+camarero_actual[0])
 	#else:
 	#	print("Fallo camarero")
 	#camarero_actual = get_object_or_404(camarero, pk=1)
-	f = Factura(camarero = camarero_actual, fecha = datetime.now(), abierto = True)
-	f.save()
-	resultado = {'result':'OK'}
-	print(resultado)
-	return HttpResponse(json.dumps(resultado, cls=DjangoJSONEncoder), content_type='application/json') #esto devuelve un Json con 'result':'OK'
-	
+	data = serializers.serialize('json', [camarero_actual,])
+	struct = json.loads(data)
+	data = json.dumps(struct[0])
+	#return HttpResponse(data, mimetype='application/json')
+	#f = Factura(camarero = camarero_actual, fecha = datetime.now(), abierto = True) 
+	#f.save()
+	#resultado = {'result':'OK'}
+	#print(resultado)
+	return HttpResponse(json.dumps(data, cls=DjangoJSONEncoder), content_type='application/json') #esto devuelve un Json con 'result':'OK'
+
 
 
 
