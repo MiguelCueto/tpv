@@ -1,4 +1,5 @@
 var camarero=""; //gurda el camarero seleccionado actual
+var camarero_id="";
 var lista_tickets=""; //guarda todos los tickets abiertos del camarero actual, junto con sus articulos de cada ticket en JSON
 var factura_actual=""; //guarda el id de la factura que vemos en la tabla
 
@@ -11,7 +12,8 @@ $(document).ready(function(){
 			$(".linea_ticket").remove();
 			$("#ticket").hide();
 			$("#total").hide();
-			camarero=$(event.target).text() //dentro del td con clase nombre sacame el texto que contenga y guardamelo el nombre en la variable
+			camarero=$(event.target).text(); //dentro del td con clase nombre sacame el texto que contenga y guardamelo el nombre en la variable
+			camarero_id=$(event.target).next().text();	
 			$("#camarero").html($(event.target).text());//te saca el nombre del camarero
 			
 			get_lista_tickets()
@@ -43,12 +45,28 @@ $(document).ready(function(){
 		});
 
 	$("#ticket_nuevo").click(function(event) { //este es el evento asociado al hacer click en TICKET NUEVO
-		$.getJSON("ticketNuevo/"+camarero, function( data ) { //pide todos los tickets
+		$.getJSON("ticketNuevo/"+camarero_id, function( data ) { //pide todos los tickets
             alert(data); //esto es solo pa probar
 		    $.each(data, function(i, item) {
-               if (item=="OK"){
-                  get_lista_tickets(); //funcion que pide todos los tickets
-               }
+				$("<tr class='linea'><td>"+item+"</td></tr>").appendTo( "#lista_tickets" );	
+				$(".linea").on('click',function(event) {//cuando haga click en la fecha que me muestra lo que tiene de articulos
+					$("#articulos").show();
+					$(".linea_ticket").remove(); //borro la tabla para meter la nueva
+					fecha=$(event.target).text(); //esto es la manera de identificar el ticket
+					var total=0; //aquig guardamos el total
+					$.each(lista_tickets, function(i, item) { //recorremos los tickets
+						if (item.factura__fecha==fecha){ //para seleccionar factura comparamos con las fechas
+							factura_actual=item.factura //si es la factura que buscamos la guardamos en la variable globarl
+							total=total+(item.cantidad)*(item.articulo__precio_unitario); //aqui calculamos el total del ticket
+							$("<tr class='linea_ticket'><td>"+item.articulo__nombre+"</td><td>"+item.cantidad+"</td><td>"+item.articulo__precio_unitario+"</td><td>"+(item.cantidad)*(item.articulo__precio_unitario)+"</td></tr>").appendTo( "#lista_tabla" );
+						}
+						
+					}); 
+					$("#total").html(total);
+					$("#ticket").show();
+					$("#total").show();
+				});
+              
             });
 		});
 	});

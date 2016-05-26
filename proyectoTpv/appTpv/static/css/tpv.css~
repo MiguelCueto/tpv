@@ -1,15 +1,23 @@
 body {
     background-color: yellow;
 	width: 60%
+	height: 100%;
 	margin: 0%, auto;
 	font-family: Arial;
-	border: solid black 3px;
+	/*border: solid black 3px;*/
 }
 
 #articulos{
 		display: none;
 		float: right;
 		border: 3px solid red;
+		text-decoration: none;
+		font-size: 22px;
+		margin-right: 20px;
+		line-height: 1.6;
+		height: 260px;
+		padding-top:5px;
+		
 }
 
 #ticket{
@@ -20,12 +28,16 @@ body {
 #lista_tickets{
 		display: none;
 		clear: both;
+		height:150px; width: 250px; text-align: center; font-size: 25px; margin-left:auto; margin-right:auto;
+		
 	
 
 }
 
 #ticket_nuevo{
 		display:none;
+		font-size: 30px;
+		margin-top:25px;
 
 }
 
@@ -35,28 +47,31 @@ body {
 
 #titulo {
 
-	border-style: solid;
-    border-color: red;
+	/*border-style: solid;
+    border-color: red;*/
 	text-align: center;
 	font-family: Arial;
 	font-size: 50px;
+	margin-bottom: 3px;
 
 }
 
 #camarero {
 	
-	border-style: solid;
-    border-color: red;
+	/*border-style: solid;
+    border-color: red;*/
 	font-size: 30px;
 	font-weight: bold;
 
 }
 td, li {
 	cursor: pointer;
+	
 }
 #contenedorTicketTotal {
-	border: solid green 3px;
+	/*border: solid green 3px;*/
 	width: 448px;
+	
 }
 #totalContenedor {
 	border: solid blue 3px;
@@ -67,11 +82,13 @@ td, li {
 }
 #listaTicketYboton{
 	
-	border: solid pink 3px;
-	padding-top: 30px;
+	border: solid transparent 3px;
+	padding-top: 5px;
+	padding-bottom: 12px;
 	
-	height: 108px;
-	overflow: hidden;	
+	
+	overflow: hidden;
+	height: 223px;	
 
 	
 
@@ -80,15 +97,25 @@ td, li {
 
 #juntaListaTicketYboton{
 
-	border:green 3px solid;
+	border:blue 3px solid;
 	width:178px;
 	display: inline-block;
+	margin-bottom: 12%;
+	width: 270px;
 }
 #lista_tabla {
 	border-collapse: collapse;
 	text-align: center;
 	width: 448px;
+	height: 234;
 
 }
+#tituloListaArticulos{
+	font-weight: bold;
+	margin-bottom: 8px;
+	margin-right: 50px;
+	margin-top: 5px;
+}
+
 
 

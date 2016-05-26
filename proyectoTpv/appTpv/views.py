@@ -38,25 +38,22 @@ def meterMasArticulos(request,factura_id,articulo_id):
 	resultado = {'result':'OK'}
 	return HttpResponse(json.dumps(resultado, cls=DjangoJSONEncoder), content_type='application/json')
 #A continuación vamos a crear la funcion que nos cree tickets nuevos 
-def ticketNuevo(request,camarero):	
+def ticketNuevo(request,camarero_id):	
 	#print("ticket nuevo de "+camarero)	
-	camarero_actual = Camarero.objects.get(nombre=camarero) #esto es una variable que guarda el nombre del Camarero, esta relacionada con 		#Factura porque factura es clave ajena de Camarero
-	#print(camarero_actual)
-	#print("ticket nuevo de "+camarero)	
-	#if camarero_actual:
-	#	print("Camarero actual: "+camarero_actual[0])
-	#else:
-	#	print("Fallo camarero")
-	#camarero_actual = get_object_or_404(camarero, pk=1)
-	data = serializers.serialize('json', [camarero_actual,])
-	struct = json.loads(data)
-	data = json.dumps(struct[0])
+	#tickets = Factura.objects.all()
+	#camarero_actual = Camarero.objects.get(nombre=camarero) #esto es una variable que guarda el nombre del Camarero, esta relacionada con 		#Factura porque factura es clave ajena de Camarero
+	
+	
+	#data = serializers.serialize('json', [camarero_actual,])
+	#struct = json.loads(data)
+	#data = json.dumps(struct[0])
 	#return HttpResponse(data, mimetype='application/json')
-	#f = Factura(camarero = camarero_actual, fecha = datetime.now(), abierto = True) 
-	#f.save()
-	#resultado = {'result':'OK'}
-	#print(resultado)
-	return HttpResponse(json.dumps(data, cls=DjangoJSONEncoder), content_type='application/json') #esto devuelve un Json con 'result':'OK'
+	camarero_actual = get_object_or_404(Camarero, pk=camarero_id)
+	f = Factura(camarero = camarero_actual, abierto = True) 
+	f.save()
+	resultado = {'fecha':f.fecha,'id':f.id} #necesitas el id y la fecha de la factura (al crear una factura nueva le pasas la fecha y el id pa crear esta
+	print(resultado)
+	return HttpResponse(json.dumps(resultado, cls=DjangoJSONEncoder), content_type='application/json') #esto devuelve un Json con 'result':'OK'
 
 
 

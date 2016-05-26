@@ -11,18 +11,19 @@
 		</head>
 		<body>
 				<h1 id="titulo">Terminal punto de venta</h1>
-				<div id="camarero">
+				<div id="camareros">
 				{% if lista_Camarero %}
-					<table border="2">
+					<table border="2" style="height:250px; width: 500px; text-align: center; font-size: 28px; margin-left:auto; margin-right:auto">
 						
 						<tr>	
-								<td style="font-weight: bold;">Elige camarero</td>
+								<td style="font-weight: bold;">Elige camarero:</td>
 																
 						</tr>
 						{% for camarero in lista_Camarero %}
 						<tr>
-								<td class='nombre'>{{ camarero.nombre }}</td>
 								
+								<td class='nombre'>{{ camarero.nombre }}</td>
+								<td>{{camarero.id}}</td>
 								
 						</tr>
 						{% endfor %}
@@ -38,16 +39,15 @@
 				<div>
 					<div id="articulos">
 						<ul>
-							<p style="font-weight: bold;">LISTA DE ARTICULOS:</p>
-							{% for articulo in lista_Articulo %}
-						
+							<p id="tituloListaArticulos">LISTA DE ARTICULOS:</p>
+							{% for articulo in lista_Articulo %}									
 									<li class="linea_articulo">{{ articulo.nombre }}</li>
 									<li class="oculto">{{ articulo.id }}</li>
 									<li class="oculto">{{ articulo.precio_unitario }}</li>
 							{% endfor %}
 							
 						</ul>
-					
+					</div>
 					<div id="contenedorTicketTotal">
 							<div id="ticket">
 								<table id="lista_tabla" border="3">
@@ -76,7 +76,7 @@
 							</div>
 								
 							
-					
+					</div>
 					<div id="listaTicketYboton">
 						<div id="juntaListaTicketYboton">
 							<table id="lista_tickets" border="3">

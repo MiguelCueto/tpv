@@ -8,5 +8,5 @@ urlpatterns = [
 	url(r'^tickets_abiertos/(?P<camarero>\w+)/$',views.tickets_abiertos, name='tickets_abiertos'),
 	url(r'^meterMasArticulos/(?P<factura_id>\d+)/(?P<articulo_id>\d+)/$',views.meterMasArticulos,name='meterMasArticulos'),
 #A continuación vamos a crear la url que nos cree tickets nuevos 
-	url(r'^ticketNuevo/(?P<camarero_id>\w+)/$',views.ticketNuevo, name='ticketNuevo'),
+	url(r'^ticketNuevo/(?P<camarero>\w+)/$',views.ticketNuevo, name='ticketNuevo'),
 ]
