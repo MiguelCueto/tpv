@@ -48,11 +48,12 @@ $(document).ready(function(){
 		$.getJSON("ticketNuevo/"+camarero_id, function( data ) { //pide todos los tickets
             alert(data); //esto es solo pa probar
 		    $.each(data, function(i, item) {
-				$("<tr class='linea'><td>"+item+"</td></tr>").appendTo( "#lista_tickets" );	
+				$("<tr class='linea'><td>"+item+"</td></tr>").appendTo( "#lista_tickets" );	//
 				$(".linea").on('click',function(event) {//cuando haga click en la fecha que me muestra lo que tiene de articulos
 					$("#articulos").show();
 					$(".linea_ticket").remove(); //borro la tabla para meter la nueva
 					fecha=$(event.target).text(); //esto es la manera de identificar el ticket
+					factura_actual=fecha;
 					var total=0; //aquig guardamos el total
 					$.each(lista_tickets, function(i, item) { //recorremos los tickets
 						if (item.factura__fecha==fecha){ //para seleccionar factura comparamos con las fechas
@@ -80,7 +81,7 @@ $.getJSON("tickets_abiertos/"+camarero, function( data ) { //pedimos a la base d
 			 	$.each(data, function(i, item) {  //recorremos todos los tickets con un for
 						if (tickets.indexOf(item.factura)==-1){ //miramos si es diferente que lo meta
 							tickets.push(item.factura);	
-							$("<tr class='linea'><td>"+item.factura__fecha+"</td></tr>").appendTo( "#lista_tickets" );
+							$("<tr class='linea'><td>"+item.factura__fecha+"</td><td>"+item.factura__id+"</td></tr>").appendTo( "#lista_tickets" );
 							
 						}
 					

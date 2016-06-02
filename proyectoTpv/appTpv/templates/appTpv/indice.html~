@@ -11,6 +11,7 @@
 		</head>
 		<body>
 				<h1 id="titulo">Terminal punto de venta</h1>
+				<div id="camarero"></div>
 				<div id="camareros">
 				{% if lista_Camarero %}
 					<table border="2" style="height:250px; width: 500px; text-align: center; font-size: 28px; margin-left:auto; margin-right:auto">
@@ -87,7 +88,9 @@
 							</div>
 						</div>
 					</div>
-					
+					<div>
+						<a href="{% url indice %}">INICIO</a>
+					</div>
 															
 						
 						

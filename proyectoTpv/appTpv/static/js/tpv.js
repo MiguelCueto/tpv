@@ -48,7 +48,7 @@ $(document).ready(function(){
 		$.getJSON("ticketNuevo/"+camarero_id, function( data ) { //pide todos los tickets
             alert(data); //esto es solo pa probar
 		    $.each(data, function(i, item) {
-				$("<tr class='linea'><td>"+item+"</td></tr>").appendTo( "#lista_tickets" );	
+				$("<tr class='linea'><td>"+item+"</td></tr>").appendTo( "#lista_tickets" );	//
 				$(".linea").on('click',function(event) {//cuando haga click en la fecha que me muestra lo que tiene de articulos
 					$("#articulos").show();
 					$(".linea_ticket").remove(); //borro la tabla para meter la nueva
