@@ -80,16 +80,16 @@
 					</div>
 					<div id="listaTicketYboton">
 						<div id="juntaListaTicketYboton">
-							<table id="lista_tickets" border="3">
-								<th>LISTA TICKETS</th>
-							</table>
+							<select id="lista_tickets" border="3">
+								<h4>LISTA TICKETS</h4>
+							</select>
 							<div>
 								<button id="ticket_nuevo">TICKET NUEVO</button>
 							</div>
 						</div>
 					</div>
 					<div>
-						<a href="{% url indice %}">INICIO</a>
+
 					</div>
 															
 						

@@ -29,11 +29,15 @@ $(document).ready(function(){
 							$.getJSON("tickets_abiertos/"+camarero, function( data ) { //pedimos los tickets del camarero otra vez, ahora ya modificados con lo nuevo que metimos
 								lista_tickets=data;
 								$(".linea_ticket").remove();// borramos otra vez las lineas
+								var total = 0;
 								$.each(data, function(i, item) { // y recorremos otra vez los que bajamos //cada linea es un item
+                           
 									if (item.factura==factura_actual){ //si la factura que recorremos es igual a la factura actual (que eso lo miramos con el id que guradamos al hacer click) entonces lo metemos
 										$("<tr class='linea_ticket'><td>"+item.articulo__nombre+"</td><td>"+item.cantidad+"</td><td>"+item.articulo__precio_unitario+"</td><td>"+(item.cantidad)*(item.articulo__precio_unitario)+"</td></tr>").appendTo("#lista_tabla");	
+										total = total + (item.cantidad)*(item.articulo__precio_unitario);
 									}
 								});
+								$("#total").html(total);
 	   						});
 						}
 						
@@ -45,18 +49,34 @@ $(document).ready(function(){
 		});
 
 	$("#ticket_nuevo").click(function(event) { //este es el evento asociado al hacer click en TICKET NUEVO
-		$.getJSON("ticketNuevo/"+camarero_id, function( data ) { //pide todos los tickets
-            alert(data); //esto es solo pa probar
-		    $.each(data, function(i, item) {
-				$("<tr class='linea'><td>"+item+"</td></tr>").appendTo( "#lista_tickets" );	//
-				$(".linea").on('click',function(event) {//cuando haga click en la fecha que me muestra lo que tiene de articulos
-					$("#articulos").show();
+		$.getJSON("ticketNuevo/"+camarero_id, function( data ) { //crea un ticket nuevo y devuelve la fecha(para mostrarla) y el id
+           
+		    $.each(data, function(i, item) {//para cada dato que me mando vamos pasando por ellos es un bucle
+            if (i=='fecha'){//si es la fecha indicada
+               $("<option class='linea'>"+item+"Z"+"</option>").appendTo( "#lista_tickets" );	//añade a la lista de tickets el nuevo ticket
+               $("#articulos").show();//mostramos el articulo
+               $(".linea_ticket").remove();//para borrar los articulos antiguos del ticket
+               var total=0; //inicializamos el total a 0 porke el ticke es nuevo
+               $("#total").html(total); //mostramos el valor de total en la plantilla
+					$("#ticket").show();
+					$("#total").show();
+            }else if (i=='id'){ //con el id que nos paso de la factura nueva, lo necesitamos para añadir articulos (porque identifica la factura por el id)
+               factura_actual=item; //factura actual almacena el id de la factura actual
+            }
+            
+
+
+				
+              
+            });
+
+$(".linea").on('click',function(event) {//cuando haga click en la fecha que me muestra lo que tiene de articulos
+               $("#articulos").show();
 					$(".linea_ticket").remove(); //borro la tabla para meter la nueva
 					fecha=$(event.target).text(); //esto es la manera de identificar el ticket
-					factura_actual=fecha;
-					var total=0; //aquig guardamos el total
+               var total=0; //aquig guardamos el total
 					$.each(lista_tickets, function(i, item) { //recorremos los tickets
-						if (item.factura__fecha==fecha){ //para seleccionar factura comparamos con las fechas
+                  if (item.factura__fecha==fecha){ //para seleccionar factura comparamos con las fechas
 							factura_actual=item.factura //si es la factura que buscamos la guardamos en la variable globarl
 							total=total+(item.cantidad)*(item.articulo__precio_unitario); //aqui calculamos el total del ticket
 							$("<tr class='linea_ticket'><td>"+item.articulo__nombre+"</td><td>"+item.cantidad+"</td><td>"+item.articulo__precio_unitario+"</td><td>"+(item.cantidad)*(item.articulo__precio_unitario)+"</td></tr>").appendTo( "#lista_tabla" );
@@ -67,8 +87,6 @@ $(document).ready(function(){
 					$("#ticket").show();
 					$("#total").show();
 				});
-              
-            });
 		});
 	});
 
@@ -81,13 +99,13 @@ $.getJSON("tickets_abiertos/"+camarero, function( data ) { //pedimos a la base d
 			 	$.each(data, function(i, item) {  //recorremos todos los tickets con un for
 						if (tickets.indexOf(item.factura)==-1){ //miramos si es diferente que lo meta
 							tickets.push(item.factura);	
-							$("<tr class='linea'><td>"+item.factura__fecha+"</td></tr>").appendTo( "#lista_tickets" );
+							$("<option class='linea'>"+item.factura__fecha+"</option>").appendTo( "#lista_tickets" );
 							
 						}
 					
 				});
 				$(".linea").on('click',function(event) {//cuando haga click en la fecha que me muestra lo que tiene de articulos
-					$("#articulos").show();
+               $("#articulos").show();
 					$(".linea_ticket").remove(); //borro la tabla para meter la nueva
 					fecha=$(event.target).text(); //esto es la manera de identificar el ticket
 					var total=0; //aquig guardamos el total
