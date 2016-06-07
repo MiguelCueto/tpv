@@ -13,6 +13,7 @@
 				<h1 id="titulo">Terminal punto de venta</h1>
 				<div id="camarero"></div>
 				<div id="camareros">
+				<div id="tabla_camareros">
 				{% if lista_Camarero %}
 					<table border="2" style="height:250px; width: 500px; text-align: center; font-size: 28px; margin-left:auto; margin-right:auto">
 						
@@ -24,13 +25,25 @@
 						<tr>
 								
 								<td class='nombre'>{{ camarero.nombre }}</td>
-								<td>{{camarero.id}}</td>
+								
 								
 						</tr>
 						{% endfor %}
 					    
 
 					</table>
+					</div>
+					<div id="listaTicketYboton">
+						<div id="juntaListaTicketYboton">
+							<select id="lista_tickets" border="3">
+								<option selected value="">Elige un ticket</option>
+							</select>
+							<div>
+								<button id="ticket_nuevo">TICKET NUEVO</button>
+							</div>
+						</div>
+					</div>
+
 				</div>
 
 				{% else %}
@@ -38,59 +51,54 @@
 				{% endif %}
 
 				<div>
-					<div id="articulos">
-						<ul>
-							<p id="tituloListaArticulos">LISTA DE ARTICULOS:</p>
-							{% for articulo in lista_Articulo %}									
-									<li class="linea_articulo">{{ articulo.nombre }}</li>
-									<li class="oculto">{{ articulo.id }}</li>
-									<li class="oculto">{{ articulo.precio_unitario }}</li>
-							{% endfor %}
-							
-						</ul>
+					
 					</div>
 					<div id="contenedorTicketTotal">
 							<div id="ticket">
-								<table id="lista_tabla" border="3">
-
-									<thead>	
-										<tr>
-											<th>Articulo</th>
-											<th>Cantidad</th>
-											<th>Precio Unitario</th>
-											<th>Precio Total</th>
-										</tr>				
-																
-									</thead>
-									
-
-								</table>
 								<div id="totalContenedor">
-									<table border="3">
-										<tr>
-											<td >TOTAL</td>
-											<td id="total"></td>
-										</tr>
-									</table>
+										<table id="lista_tabla" border="3">
+
+											<thead>	
+												<tr>
+													<th>Articulo</th>
+													<th>Cantidad</th>
+													<th>Precio Unitario</th>
+													<th>Precio Total</th>
+												</tr>				
+																
+											</thead>				
+
+										</table>
+								
+										<table id="tablaTotalin" border="5">
+													<tr>
+														<td >TOTAL</td>
+														<td id="total"></td>
+													</tr>
+										</table>
 
 								</div>
-							</div>
-								
+								<div id="articulos">
+										<ul>
+											<p id="tituloListaArticulos">LISTA DE ARTICULOS:</p>
+													{% for articulo in lista_Articulo %}									
+														<li class="linea_articulo">{{ articulo.nombre }}</li>
+														<li class="oculto">{{ articulo.id }}</li>
+														<li class="oculto">{{ articulo.precio_unitario }}</li>
+													{% endfor %}
 							
-					</div>
-					<div id="listaTicketYboton">
-						<div id="juntaListaTicketYboton">
-							<select id="lista_tickets" border="3">
-								<option selected disabled>Choose one</option>
-							</select>
-							<div>
-								<button id="ticket_nuevo">TICKET NUEVO</button>
+										</ul>
+							
+								</div>
 							</div>
-						</div>
-					</div>
-					<div>
 
+											
+											
 					</div>
+
+							
+					
+					
 															
 						
 						

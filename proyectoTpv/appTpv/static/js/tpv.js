@@ -12,7 +12,7 @@ $(document).ready(function(){
 			$(".linea_ticket").remove();
 			$("#ticket").hide();
 			$("#total").hide();
-			camarero=$(event.target).text(); //dentro del td con clase nombre sacame el texto que contenga y guardamelo el nombre en la variable
+			camarero=$(event.target).text(); //dentro del td con clase nombre sacame el texto que contenga y guardamelo el nombre en la variable //aqui le metes el clik para que quede resaltado
 			camarero_id=$(event.target).next().text();	
 			$("#camarero").html($(event.target).text());//te saca el nombre del camarero
 			
