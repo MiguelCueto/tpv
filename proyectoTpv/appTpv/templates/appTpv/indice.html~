@@ -25,7 +25,7 @@
 						<tr>
 								
 								<td class='nombre'>{{ camarero.nombre }}</td>
-								
+								<td>{{camarero.id}}</td>
 								
 						</tr>
 						{% endfor %}
@@ -55,25 +55,26 @@
 					</div>
 					<div id="contenedorTicketTotal">
 							<div id="ticket">
-								<table id="lista_tabla" border="3">
-
-									<thead>	
-										<tr>
-											<th>Articulo</th>
-											<th>Cantidad</th>
-											<th>Precio Unitario</th>
-											<th>Precio Total</th>
-										</tr>				
-																
-									</thead>				
-
-								</table>
 								<div id="totalContenedor">
+										<table id="lista_tabla" border="3">
+
+											<thead>	
+												<tr>
+													<th>Articulo</th>
+													<th>Cantidad</th>
+													<th>Precio Unitario</th>
+													<th>Precio Total</th>
+												</tr>				
+																
+											</thead>				
+
+										</table>
+								
 										<table id="tablaTotalin" border="5">
-											<tr>
-												<td >TOTAL</td>
-												<td id="total"></td>
-											</tr>
+													<tr>
+														<td >TOTAL</td>
+														<td id="total"></td>
+													</tr>
 										</table>
 
 								</div>

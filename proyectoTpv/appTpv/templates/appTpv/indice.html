@@ -19,13 +19,14 @@
 						
 						<tr>	
 								<td style="font-weight: bold;">Elige camarero:</td>
+								<td style="font-weight: bold;">id</td>
 																
 						</tr>
 						{% for camarero in lista_Camarero %}
 						<tr>
 								
 								<td class='nombre'>{{ camarero.nombre }}</td>
-								
+								<td>{{camarero.id}}</td>
 								
 						</tr>
 						{% endfor %}
